@@ -63,6 +63,12 @@ NtnGeodeticFixedMobilityModel::GetTypeId()
 NtnGeodeticFixedMobilityModel::NtnGeodeticFixedMobilityModel() = default;
 NtnGeodeticFixedMobilityModel::~NtnGeodeticFixedMobilityModel() = default;
 
+Ptr<MobilityModel>
+NtnGeodeticFixedMobilityModel::Copy() const
+{
+    return CreateObject<NtnGeodeticFixedMobilityModel>(*this);
+}
+
 void
 NtnGeodeticFixedMobilityModel::SetGeodetic(double latDeg, double lonDeg, double altM)
 {

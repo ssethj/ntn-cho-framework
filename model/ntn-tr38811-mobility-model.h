@@ -102,6 +102,9 @@ class NtnEnuProjectionMobilityModel : public MobilityModel
     NtnEnuProjectionMobilityModel();
     ~NtnEnuProjectionMobilityModel() override;
 
+    // Inherited from MobilityModel
+    Ptr<MobilityModel> Copy() const override;
+
     /// The ECEF source model to project (e.g. a Sgp4MobilityModel).
     void SetSource(Ptr<MobilityModel> source) { m_source = source; }
     /// The geodetic origin of the scenario's local ENU frame.
@@ -135,6 +138,9 @@ class NtnTr38811MobilityModel : public GeocentricConstantPositionMobilityModel
     static TypeId GetTypeId();
     NtnTr38811MobilityModel();
     ~NtnTr38811MobilityModel() override;
+
+    // Inherited from MobilityModel (base-class Copy would slice the UE state)
+    Ptr<MobilityModel> Copy() const override;
 
     /**
      * \brief Bind this model to a generated TR 38.811 UE state and the shared

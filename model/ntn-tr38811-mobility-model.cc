@@ -150,6 +150,12 @@ NtnEnuProjectionMobilityModel::GetTypeId()
 NtnEnuProjectionMobilityModel::NtnEnuProjectionMobilityModel() = default;
 NtnEnuProjectionMobilityModel::~NtnEnuProjectionMobilityModel() = default;
 
+Ptr<MobilityModel>
+NtnEnuProjectionMobilityModel::Copy() const
+{
+    return CreateObject<NtnEnuProjectionMobilityModel>(*this);
+}
+
 void
 NtnEnuProjectionMobilityModel::SetReference(double lat0Deg, double lon0Deg, double alt0M)
 {
@@ -205,6 +211,12 @@ NtnTr38811MobilityModel::GetTypeId()
 
 NtnTr38811MobilityModel::NtnTr38811MobilityModel() = default;
 NtnTr38811MobilityModel::~NtnTr38811MobilityModel() = default;
+
+Ptr<MobilityModel>
+NtnTr38811MobilityModel::Copy() const
+{
+    return CreateObject<NtnTr38811MobilityModel>(*this);
+}
 
 void
 NtnTr38811MobilityModel::SetUeState(const RealisticUe& ue,

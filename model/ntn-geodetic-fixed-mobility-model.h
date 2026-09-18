@@ -64,6 +64,9 @@ class NtnGeodeticFixedMobilityModel : public MobilityModel
     NtnGeodeticFixedMobilityModel();
     ~NtnGeodeticFixedMobilityModel() override;
 
+    // Inherited from MobilityModel
+    Ptr<MobilityModel> Copy() const override;
+
     /// Anchor the terminal at a WGS84 geodetic location.
     void SetGeodetic(double latDeg, double lonDeg, double altM);
 
